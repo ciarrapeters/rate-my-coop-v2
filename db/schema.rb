@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20181117193930) do
+ActiveRecord::Schema.define(version: 20181117205337) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -20,6 +20,13 @@ ActiveRecord::Schema.define(version: 20181117193930) do
     t.string "geo_location"
     t.string "review"
     t.string "time_period"
+  end
+
+  create_table "students", force: :cascade do |t|
+    t.string "name"
+    t.string "contact"
+    t.bigint "mycoops_id"
+    t.index ["mycoops_id"], name: "index_students_on_mycoops_id"
   end
 
 end
