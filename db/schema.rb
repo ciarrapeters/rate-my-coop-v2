@@ -10,23 +10,32 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20181117205337) do
+ActiveRecord::Schema.define(version: 20181130185938) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
-  create_table "mycoops", force: :cascade do |t|
-    t.string "company_name"
-    t.string "geo_location"
+  create_table "companies", force: :cascade do |t|
+    t.string "name"
+  end
+
+  create_table "coop_positions", force: :cascade do |t|
+    t.string "position_title"
+    t.string "period_of_work"
+    t.string "location"
     t.string "review"
-    t.string "time_period"
+    t.integer "star_rating"
+    t.bigint "student_id"
+    t.bigint "company_id"
+    t.index ["company_id"], name: "index_coop_positions_on_company_id"
+    t.index ["student_id"], name: "index_coop_positions_on_student_id"
   end
 
   create_table "students", force: :cascade do |t|
     t.string "name"
     t.string "contact"
-    t.bigint "mycoops_id"
-    t.index ["mycoops_id"], name: "index_students_on_mycoops_id"
   end
 
+  add_foreign_key "coop_positions", "companies"
+  add_foreign_key "coop_positions", "students"
 end
