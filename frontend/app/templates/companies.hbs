@@ -1,0 +1,11 @@
+<div class="container">
+  <div class="jumbotron">
+    <h1>Welcome!</h1>
+    <p><strong>Rate My Coop</strong> is designed to connect YOU to students who have worked at a company you are interested in. By giving you access to ratings from other students and their associated contact information, you can make informed decisions about your next co-op experience without having to wait for an advisor. Happy hunting!</p>
+  </div>
+  {{#each model as |company|}}
+  <div class="panel-group">{{company.name}}</div>
+  {{/each}}  
+</div>
+
+{{outlet}}

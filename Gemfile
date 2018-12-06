@@ -7,6 +7,8 @@ end
 
 # Connecting ember to our rails app
 gem 'ember-cli-rails', '~> 0.10.0'
+# Connecting our serializers
+gem 'active_model_serializers', '~> 0.10.0'
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '~> 5.1.6'
 # Use postgresql as the database for Active Record
