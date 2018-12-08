@@ -1,4 +1,4 @@
 class Student < ActiveRecord::Base
-  belongs_to :company
-  has_many :mycoop
+  has_many :coop_positions
+  #has_many :companies
 end
