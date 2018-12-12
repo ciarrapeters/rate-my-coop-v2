@@ -9,7 +9,6 @@ const Router = EmberRouter.extend({
 Router.map(function() {
 	this.route('students');
 	this.route('companies');
-	this.route('coop-positions');
 });
 
 export default Router;

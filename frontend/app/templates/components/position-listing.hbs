@@ -1,0 +1,23 @@
+<article class="listing">
+  <div class="details">
+    <h3>{{position.positionTitle}}</h3>
+    <div class="detail owner">
+      <span>Period of Work:</span> {{position.periodOfWork}}
+    </div>
+    <div class="detail type">
+      <span>Location:</span> {{position.location}}
+    </div>
+    <div class="detail location">
+      <span>Rating:</span> {{position.starRating}}
+    </div>
+    <div class="detail bedrooms">
+      <span>Review:</span> {{position.review}}
+    </div>
+    <div>
+      <span>Students that hath attained such an honorable position:</span>
+      <button {{action "findStudents"}}>Find students</button>
+    </div>
+  </div>
+</article>
+{{position.positionTitle}}
+{{yield}}
