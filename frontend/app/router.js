@@ -7,9 +7,15 @@ const Router = EmberRouter.extend({
 });
 
 Router.map(function() {
-	this.route('students');
-	this.route('companies');
-	this.route('coop-positions');
+  this.route('companies', function() {
+    this.route('company', { path: '/:company_id' }, function() {
+      this.route('coop-positions', function() {
+        this.route('coop-position', { path: '/coop-positions/:coop_position_id' }, function() {
+          this.route('students');
+        });
+      });
+    });
+  });
 });
 
 export default Router;
