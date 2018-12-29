@@ -1,0 +1,13 @@
+<ul>
+{{#each model as |model|}}
+<li>
+  {{model.positionTitle}}
+  <br>
+  {{#link-to "companies.company.coop-positions.coop-position" model}}
+  Check out the students who have worked here
+  {{/link-to}}
+</li>
+{{/each}}
+</ul>
+
+{{outlet}}

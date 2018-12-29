@@ -1,11 +1,52 @@
 <div class="container">
-  <div class="jumbotron">
-    <h1>Welcome!</h1>
-    <p><strong>Rate My Coop</strong> is designed to connect YOU to students who have worked at a company you are interested in. By giving you access to ratings from other students and their associated contact information, you can make informed decisions about your next co-op experience without having to wait for an advisor. Happy hunting!</p>
-  </div>
-  {{#each model as |company|}}
-    <div class="panel-group">{{company.name}}</div>
-  {{/each}}
+  {{#paper-card as |card|}}
+    {{#card.title as |title|}}
+      {{#title.text as |text|}}
+        {{#text.headline}}<h2>Welcome!</h2>{{/text.headline}}
+      {{/title.text}}
+    {{/card.title}}
+    {{#card.content}}
+      <p><strong>Rate My Coop</strong> is designed to connect YOU to students who have worked at a company you are interested in. By giving you access to ratings from other students and their associated contact information, you can make informed decisions about your next co-op experience without having to wait for an advisor. Happy hunting!</p>
+      <p>
+        {{#paper-autocomplete
+          placeholder="Type company name"
+          options=model
+          selected=selectedItem
+          searchField="name"
+          labelPath="name"
+          onSelectionChange=(action (mut selectedItem)) as |company autocomplete|}}
+          <span class="item-title">
+            {{paper-icon "star"}}
+            <span>
+              {{paper-autocomplete-highlight
+                label=company.name
+                searchText=autocomplete.searchText
+                flags="i"}}
+            </span>
+          </span>
+          {{else}}
+          <p>
+            Whoops! Looks like we don't have that company in the database yet!
+          </p>
+        {{/paper-autocomplete}}
+      </p>
+      {{#card.actions}}
+      <div>
+        {{#if selectedItem}}
+          {{#link-to "companies.company.coop-positions" selectedItem.id}}
+            {{#paper-button}}
+            search positions
+            {{/paper-button}}
+          {{/link-to}}
+        {{else}}
+          {{#paper-button}}
+            search positions
+          {{/paper-button}}
+        {{/if}}
+      </div>
+      {{/card.actions}}
+    {{/card.content}}
+  {{/paper-card}}
 </div>
 
 {{outlet}}
