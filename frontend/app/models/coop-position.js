@@ -7,6 +7,6 @@ export default DS.Model.extend({
   review: DS.attr(),
   starRating: DS.attr(),
 
-  students: DS.belongsTo('student'),
+  student: DS.belongsTo('student'),
   company: DS.belongsTo('company')
 });
