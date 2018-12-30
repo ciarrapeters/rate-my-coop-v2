@@ -1,20 +1,20 @@
 <ul>
-{{#each model as |model|}}
-<li>
-  {{model.positionTitle}}
-</li>
-<li>
-  {{model.review}}
-</li>
-<li>
-  {{model.starRating}}
-</li>
-<li>
-  {{#link-to "companies.company.coop-positions.coop-position.students" model}}
-  Check out the students who have worked here
-  {{/link-to}}
-</li>
-{{/each}}
+  {{#each model as |model|}}
+    <li>
+      {{model.positionTitle}}
+    </li>
+    <li>
+      {{model.review}}
+    </li>
+    <li>
+      {{model.starRating}}
+    </li>
+    <li>
+      {{#link-to "companies.company.coop-positions.coop-position.students" model}}
+        Check out the students who have worked here
+      {{/link-to}}
+    </li>
+  {{/each}}
 </ul>
 
 {{outlet}}

@@ -14,36 +14,39 @@
           selected=selectedItem
           searchField="name"
           labelPath="name"
-          onSelectionChange=(action (mut selectedItem)) as |company autocomplete|}}
+          onSelectionChange=(action (mut selectedItem))
+        as |company autocomplete|
+        }}
           <span class="item-title">
             {{paper-icon "star"}}
             <span>
               {{paper-autocomplete-highlight
                 label=company.name
                 searchText=autocomplete.searchText
-                flags="i"}}
+                flags="i"
+	             }}
             </span>
           </span>
-          {{else}}
+        {{else}}
           <p>
             Whoops! Looks like we don't have that company in the database yet!
           </p>
         {{/paper-autocomplete}}
       </p>
       {{#card.actions}}
-      <div>
-        {{#if selectedItem}}
-          {{#link-to "companies.company.coop-positions" selectedItem.id}}
+        <div>
+          {{#if selectedItem}}
+            {{#link-to "companies.company.coop-positions" selectedItem.id}}
+              {{#paper-button}}
+                search positions
+              {{/paper-button}}
+            {{/link-to}}
+          {{else}}
             {{#paper-button}}
-            search positions
+              search positions
             {{/paper-button}}
-          {{/link-to}}
-        {{else}}
-          {{#paper-button}}
-            search positions
-          {{/paper-button}}
-        {{/if}}
-      </div>
+          {{/if}}
+        </div>
       {{/card.actions}}
     {{/card.content}}
   {{/paper-card}}
