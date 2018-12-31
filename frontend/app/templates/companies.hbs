@@ -6,7 +6,9 @@
       {{/title.text}}
     {{/card.title}}
     {{#card.content}}
+      <div class="jumbotron">
       <p><strong>Rate My Coop</strong> is designed to connect YOU to students who have worked at a company you are interested in. By giving you access to ratings from other students and their associated contact information, you can make informed decisions about your next co-op experience without having to wait for an advisor. Happy hunting!</p>
+      </div>
       <p>
         {{#paper-autocomplete
           placeholder="Type company name"
@@ -36,7 +38,7 @@
       {{#card.actions}}
         <div>
           {{#if selectedItem}}
-            {{#link-to "companies.company.coop-positions" selectedItem.id}}
+            {{#link-to "companies.company.coop-positions.index" selectedItem.id}}
               {{#paper-button}}
                 search positions
               {{/paper-button}}
@@ -50,6 +52,7 @@
       {{/card.actions}}
     {{/card.content}}
   {{/paper-card}}
-</div>
 
 {{outlet}}
+</div>
+

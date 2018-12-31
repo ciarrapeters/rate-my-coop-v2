@@ -1,0 +1,21 @@
+<h3>{{model.company.name}}'s Co-op Positions:</h3>
+<ul>
+  {{#each model.coopPositions as |coop|}}
+    <li>
+      {{coop.positionTitle}}
+    </li>
+    <li>
+      {{coop.review}}
+    </li>
+    <li>
+      {{coop.starRating}}
+    </li>
+    <li>
+      {{#link-to "companies.company.coop-positions.coop-position.students" coop}}
+        Check out the students who have worked here
+      {{/link-to}}
+    </li>
+  {{/each}}
+</ul>
+
+{{outlet}}
