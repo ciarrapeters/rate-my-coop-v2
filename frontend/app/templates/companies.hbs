@@ -1,58 +1,68 @@
-<div class="container">
-  {{#paper-card as |card|}}
-    {{#card.title as |title|}}
-      {{#title.text as |text|}}
-        {{#text.headline}}<h2>Welcome!</h2>{{/text.headline}}
-      {{/title.text}}
-    {{/card.title}}
-    {{#card.content}}
-      <div class="jumbotron">
-      <p><strong>Rate My Coop</strong> is designed to connect YOU to students who have worked at a company you are interested in. By giving you access to ratings from other students and their associated contact information, you can make informed decisions about your next co-op experience without having to wait for an advisor. Happy hunting!</p>
+<div class="container intro">
+  <div class="intro-image-underlay rotate-45">
+  </div>
+  <div class="intro-image-underlay">
+  </div>
+  <div class="intro-image-underlay rotate-90">
+  </div>
+  <div class="intro-image">
+    <img src="/assets/images/kenneth.png" class="intro-img" alt="Kenneth on Co-op" />
+  </div>
+  <div class="row">
+    <div class="col-md-5">
+      <h1 class="header-display">Rate My Coop</h1>
+      <p>The co-ops you want with the information you need.</p>
+      <div>
+        <a href="#search-area">
+        {{#paper-button raised=true primary=true}}
+          Get Started
+        {{/paper-button}}
+        </a>
       </div>
+    </div>
+  </div>
+</div>
+<div class="container search-area" id="search-area">
+  <p><strong>Rate My Coop</strong> is designed to connect YOU to students who have worked at a company you are interested in. By giving you access to ratings from other students and their associated contact information, you can make informed decisions about your next co-op experience without having to wait for an advisor. Happy hunting!</p>
+  <p>
+    {{#paper-autocomplete
+      placeholder="Type company name"
+      options=model
+      selected=selectedItem
+      searchField="name"
+      labelPath="name"
+      onSelectionChange=(action (mut selectedItem))
+    as |company autocomplete|
+    }}
+      <span class="item-title">
+        {{paper-icon "star"}}
+        <span>
+          {{paper-autocomplete-highlight
+            label=company.name
+            searchText=autocomplete.searchText
+            flags="i"
+           }}
+        </span>
+      </span>
+    {{else}}
       <p>
-        {{#paper-autocomplete
-          placeholder="Type company name"
-          options=model
-          selected=selectedItem
-          searchField="name"
-          labelPath="name"
-          onSelectionChange=(action (mut selectedItem))
-        as |company autocomplete|
-        }}
-          <span class="item-title">
-            {{paper-icon "star"}}
-            <span>
-              {{paper-autocomplete-highlight
-                label=company.name
-                searchText=autocomplete.searchText
-                flags="i"
-	             }}
-            </span>
-          </span>
-        {{else}}
-          <p>
-            Whoops! Looks like we don't have that company in the database yet!
-          </p>
-        {{/paper-autocomplete}}
+        Whoops! Looks like we don't have that company in the database yet!
       </p>
-      {{#card.actions}}
-        <div>
-          {{#if selectedItem}}
-            {{#link-to "companies.company.coop-positions.index" selectedItem.id}}
-              {{#paper-button}}
-                search positions
-              {{/paper-button}}
-            {{/link-to}}
-          {{else}}
-            {{#paper-button}}
-              search positions
-            {{/paper-button}}
-          {{/if}}
-        </div>
-      {{/card.actions}}
-    {{/card.content}}
-  {{/paper-card}}
-
+    {{/paper-autocomplete}}
+  </p>
+  <div>
+    {{#if selectedItem}}
+      {{#link-to "companies.company.coop-positions.index" selectedItem.id}}
+        {{#paper-button}}
+          search positions
+        {{/paper-button}}
+      {{/link-to}}
+    {{else}}
+      {{#paper-button}}
+        search positions
+      {{/paper-button}}
+    {{/if}}
+  </div>
 {{outlet}}
 </div>
 
