@@ -1,3 +1,7 @@
+$primary: "cyan";
+$accent: "light-green";
+$warn: "pink";
+
 @import 'ember-paper';
 @import 'bootstrap';
 
@@ -9,8 +13,62 @@
   color: white;
 }
 
-.jumbotron {
-  background-color: #bce8f1;
+.intro {
+  height: 100vh;
+  margin-top: 30vh;
+}
+
+.intro-image {
+  display: block;
+  width: 60%;
+  margin-top: 55px;
+  right: 0;
+  top: 0;
+  position: absolute !important;
+}
+
+.intro-img {
+  -webkit-clip-path: polygon(100% 0%, 100% 38%, 58% 83%, 49% 88%, 40% 90%, 28% 92%, 14% 88%, 6% 80%, 2% 67%, 3% 53%, 7% 42%, 14% 35%, 52% 0);
+  clip-path: polygon(100% 0%, 100% 38%, 58% 83%, 49% 88%, 40% 90%, 28% 92%, 14% 88%, 6% 80%, 2% 67%, 3% 53%, 7% 42%, 14% 35%, 52% 0);
+  width: 100%;
+}
+
+.intro-image-underlay {
+-webkit-clip-path: ellipse(48% 23% at 51% 48%);
+clip-path: ellipse(48% 23% at 51% 48%);
+  background-color: cyan;
+  opacity: .2;
+  width: 60vw;
+  height: 60vw;
+  display: block;
+  margin-top: 55px;
+  right: 100px;
+  top: 0;
+  position: absolute !important;
+}
+
+.rotate-45 {
+  transform: rotate(45deg);
+}
+
+.rotate-90 {
+  transform: rotate(90deg);
+}
+
+
+.search-area {
+  height: 100vh;
+}
+
+html, body {
+  position: static !important;
+}
+
+.header-display {
+  margin-bottom: 1rem;
+  font-size: 5rem;
+  font-weight: 400;
+  line-height: 1.2;
 }
 
 .form-control {
@@ -23,7 +81,19 @@
 }
 
 .navbar-default {
-  background-color: #bce8f1;
+  background-color: transparent;
+}
+
+p {
+  color: #77838f;
+  line-height: 1.7;
+  font-size: 2rem;
+}
+
+.md-button.md-primary {
+  padding: 10px 25px;
+  font-size: 1.5rem;
+  color: white !important;
 }
 
 .detail {
